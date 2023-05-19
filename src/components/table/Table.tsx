@@ -10,7 +10,7 @@ export interface TableProps {
 
 export interface TableColumn {
   header: string
-  accessor: string
+  accessor: string | ((data: any) => any)
 }
 
 export const Table: FC<TableProps> = ({ data, columns, skeletonRowsNumber, onRowClick }) => (
@@ -32,10 +32,25 @@ export const Table: FC<TableProps> = ({ data, columns, skeletonRowsNumber, onRow
         : data.map((item, index) => (
             <tr key={index} onClick={() => onRowClick?.(item)}>
               {columns.map((column, index) => (
-                <td key={index}>{item[column.accessor]}</td>
+                <td key={index}>{getCellValue(item, column.accessor)}</td>
               ))}
             </tr>
           ))}
     </tbody>
   </table>
 )
+
+function getCellValue(data: any, accessor: string | ((data: any) => any)): any {
+  if (typeof accessor === 'function') {
+    return accessor(data)
+  }
+  const properties = accessor.split('.')
+  let value = data
+  for (const property of properties) {
+    value = value[property]
+    if (value === undefined) {
+      return ''
+    }
+  }
+  return value
+}
