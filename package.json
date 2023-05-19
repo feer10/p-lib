@@ -87,6 +87,7 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/p-lib.es.js",
       "require": "./dist/p-lib.umd.js"
     },
