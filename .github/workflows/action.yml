@@ -34,7 +34,7 @@ jobs:
           node-version: 14.x
 
       - name: Generate new version on Dispatch
-        if: ${{ github.event.inputs.version } != ''
+        if: ${{ github.event.inputs.version }} != ''
         run: npm version ${{ github.event.inputs.version }}
 
       - name: Generate new version on Push
