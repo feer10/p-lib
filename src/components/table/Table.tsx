@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import './table.scss'
+import './Table.scss'
 
 export interface TableProps {
   data: any[]
