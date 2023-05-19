@@ -1,4 +1,4 @@
-name: Generate tag version
+name: Generate tag version and push
 on:
   push:
     branches:
@@ -44,7 +44,7 @@ jobs:
       - name: Push new version tag to repository
         run: git push origin main --tags
   
-  build:
+  build_and_push:
     runs-on: ubuntu-latest
 
     steps:
