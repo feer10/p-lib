@@ -16,12 +16,39 @@
   }
   
   tr {
-    transition: all, .3s;
+    transition: background-color 0.3s ease;
 
     &:hover {
       background-color: $bg-light-1;
       color: $bg-dark-1;
       cursor: pointer;
     }
+  }
+
+  .skeleton-row {
+    height: 24px;
+    
+    td {
+      background-color: transparent;
+      margin: 4px;
+
+      &::after {
+        animation: skeleton-loading 1s linear infinite alternate;
+        content: '';
+        display: block;
+        height: 16px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #c2cfd6;
+  }
+
+  100% {
+    background-color: #f0f3f5;
   }
 }
