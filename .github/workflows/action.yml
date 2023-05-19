@@ -22,16 +22,22 @@ jobs:
     
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
         with:
           ref: main
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
+          registry-url: https://registry.npmjs.org/
+      
+      - name: Unit test
+        run: yarn test
 
       - name: Generate new version on Dispatch
         if: ${{ github.event.inputs.version }} != ''
@@ -49,7 +55,9 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          ref: main
       
       - name: Setup node
         uses: actions/setup-node@v2
@@ -59,9 +67,6 @@ jobs:
           
       - name: Install dependencies
         run: yarn
-      
-      - name: Unit test
-        run: yarn test
       
       - name: Build
         run: yarn build
