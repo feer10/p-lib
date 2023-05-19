@@ -11,6 +11,9 @@ const meta = {
     className: {
       description: 'Custom className',
     },
+    testId: {
+      description: 'Custom data-testid',
+    },
     onClick: {
       description: 'onClick event',
     },
