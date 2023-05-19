@@ -9066,6 +9066,14 @@ vite-plugin-dts@^2.3.0:
     magic-string "^0.29.0"
     ts-morph "18.0.0"
 
+vite-plugin-lib-inject-css@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-lib-inject-css/-/vite-plugin-lib-inject-css-1.2.0.tgz#40ffdd51f6e96e47a72b2df66e1cea6a23f495b2"
+  integrity sha512-mELCOWG0f0auFkDGQHAL7Ks9oQ6RhB0xHlZ6GA0mTLMkkQcHCrZ8mkJFoH+ryZTNqxNLlYTLqbrnPClOO0Fq/Q==
+  dependencies:
+    magic-string "^0.30.0"
+    picocolors "^1.0.0"
+
 vite-plugin-linter@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/vite-plugin-linter/-/vite-plugin-linter-2.0.2.tgz#120758de56eb5ad226adad3799229a7fcad2de08"
