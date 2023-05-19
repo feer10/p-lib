@@ -18,7 +18,8 @@ on:
 
 jobs:
   version:
-    name: Create new version ${{ github.event.inputs.version }}
+    name: Create new version 
+    
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -32,8 +33,13 @@ jobs:
         with:
           node-version: 14.x
 
-      - name: Generate new version
+      - name: Generate new version on Dispatch
+        if: ${{ github.event.inputs.version } != ''
         run: npm version ${{ github.event.inputs.version }}
+
+      - name: Generate new version on Push
+        if: github.event_name == 'push'
+        run: npm version patch
 
       - name: Push new version tag to repository
         run: git push origin main --tags
