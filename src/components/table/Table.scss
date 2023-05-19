@@ -1,0 +1,27 @@
+.custom-table {
+  border-collapse: collapse;
+  width: 100%;
+  
+  th {
+    background-color: $bg-dark-2;
+    color: $bg-light-1;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  td {
+    border-bottom: 1px solid $bg-light-2;
+    padding: 10px;
+  }
+  
+  tr {
+    transition: all, .3s;
+
+    &:hover {
+      background-color: $bg-light-1;
+      color: $bg-dark-1;
+      cursor: pointer;
+    }
+  }
+}
